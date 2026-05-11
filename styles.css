@@ -177,8 +177,19 @@ nav a.active {
 /* News table */
 .news-table { width: 100%; border-collapse: collapse; }
 .news-table td { padding: 10px 0; border-top: 1px solid #f5f5f5; vertical-align: top; }
-.news-date { width: 130px; font-weight: 600; color: var(--wsu-crimson); }
+.news-date { width: 130px; font-weight: 600; color: #000; }
 .hidden-news { display: none; }
+.news-table td a {
+    color: var(--wsu-crimson);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: text-shadow 0.15s ease, border-bottom-color 0.15s ease;
+}
+.news-table td a:hover {
+    text-shadow: 0 0 0.4px var(--wsu-crimson), 0 0 0.4px var(--wsu-crimson);
+    border-bottom-color: var(--wsu-crimson);
+}
+
 
 /* See more button */
 .button-container { width: 100%; text-align: center; margin-top: 15px; }
