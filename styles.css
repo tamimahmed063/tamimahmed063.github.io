@@ -30,10 +30,11 @@ a {
     color: var(--wsu-crimson);
     text-decoration: none;
     font-weight: 400;
-    border-bottom: 2px solid transparent;]
+    border-bottom: 2px solid transparent;
+    transition: text-shadow 0.15s ease, border-bottom-color 0.15s ease;
 }
 .content p a:hover {
-    font-weight: 400;
+    text-shadow: 0 0 0.4px var(--wsu-crimson), 0 0 0.4px var(--wsu-crimson);
     border-bottom-color: var(--wsu-crimson);
 }
 
@@ -179,6 +180,7 @@ nav a.active {
 .news-table td { padding: 10px 0; border-top: 1px solid #f5f5f5; vertical-align: top; }
 .news-date { width: 130px; font-weight: 600; color: #000; }
 .hidden-news { display: none; }
+
 .news-table td a {
     color: var(--wsu-crimson);
     text-decoration: none;
@@ -189,7 +191,6 @@ nav a.active {
     text-shadow: 0 0 0.4px var(--wsu-crimson), 0 0 0.4px var(--wsu-crimson);
     border-bottom-color: var(--wsu-crimson);
 }
-
 
 /* See more button */
 .button-container { width: 100%; text-align: center; margin-top: 15px; }
@@ -498,144 +499,80 @@ a.pdf-link:hover { text-decoration: underline !important; }
 }
 .album-row img:hover { transform: scale(1.05); box-shadow: 0 8px 12px rgba(0,0,0,0.2); }
 
-
 /* ============================================================
    RESPONSIVE — TABLET  (≤ 900px)
    ============================================================ */
 @media (max-width: 900px) {
 
-    /* Header: tighten spacing */
-    .site-header {
-        padding: 12px 20px;
-        gap: 16px;
-    }
-
+    .site-header { padding: 12px 20px; gap: 16px; }
     .header-left h1.page-title { font-size: 2rem; }
     .affiliation-block p { font-size: 0.95rem; }
-
     nav ul { gap: 16px; }
     nav a { font-size: 0.95rem; }
 
-    /* Containers */
     .container,
     .cv-wrapper,
     .research-wrapper,
     .pub-wrapper { padding: 0 20px 40px 20px; }
 
-    /* Sidebar: slightly narrower */
-    .info-box {
-        width: 220px;
-        margin-left: 24px;
-    }
+    .info-box { width: 220px; margin-left: 24px; }
     .profile-container { width: 170px; }
 
-    /* iframes: a touch shorter */
     .cv-frame-container iframe,
     .research-frame-container iframe { height: 75vh; }
 
-    /* CV toolbar: hide spacer so title can center naturally */
     .cv-toolbar .spacer { display: none; }
     .cv-toolbar { justify-content: space-between; }
 }
-
 
 /* ============================================================
    RESPONSIVE — MOBILE  (≤ 650px)
    ============================================================ */
 @media (max-width: 650px) {
 
-    /* ── Header: stack vertically ── */
-    .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 14px 16px;
-        gap: 12px;
-    }
-
+    .site-header { flex-direction: column; align-items: flex-start; padding: 14px 16px; gap: 12px; }
     .header-left h1.page-title { font-size: 1.75rem; }
     .affiliation-block p { font-size: 0.88rem; }
 
-    /* Nav: wrap into multiple rows, smaller font */
-    nav ul {
-        flex-wrap: wrap;
-        gap: 10px 18px;
-    }
+    nav ul { flex-wrap: wrap; gap: 10px 18px; }
     nav a { font-size: 0.9rem; }
 
-    /* ── Containers ── */
     .container,
     .cv-wrapper,
     .research-wrapper,
     .pub-wrapper { padding: 0 16px 32px 16px; }
 
-    /* ── Sidebar: full-width block, centered above bio ── */
-    .info-box {
-        float: none;
-        width: 100%;
-        margin: 0 0 24px 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+    .info-box { float: none; width: 100%; margin: 0 0 24px 0; display: flex; flex-direction: column; align-items: center; }
     .profile-container { width: 150px; }
 
-    /* ── News table: date stacks above text ── */
     .news-table,
     .news-table tbody,
     .news-table tr,
     .news-table td { display: block; width: 100%; }
-
-    .news-date {
-        width: auto;
-        padding-bottom: 2px;
-        padding-top: 10px;
-        font-size: 0.85rem;
-    }
-
+    .news-date { width: auto; padding-bottom: 2px; padding-top: 10px; font-size: 0.85rem; }
     .news-table td:last-child { padding-top: 0; padding-bottom: 10px; }
 
-    /* ── CV / Research toolbars ── */
     .cv-toolbar,
-    .research-toolbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
+    .research-toolbar { flex-direction: column; align-items: flex-start; gap: 10px; }
     .cv-toolbar h2,
-    .research-toolbar h2 {
-        text-align: left;
-        font-size: 1.4rem;
-    }
-
+    .research-toolbar h2 { text-align: left; font-size: 1.4rem; }
     .cv-toolbar .spacer { display: none; }
 
-    /* iframes: shorter on phones */
     .cv-frame-container iframe,
     .research-frame-container iframe { height: 60vh; }
 
-    /* ── Publications ── */
-    .pub-header-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
+    .pub-header-row { flex-direction: column; align-items: flex-start; gap: 10px; }
     .pub-item { flex-direction: column; gap: 4px; }
     .pub-label { min-width: unset; max-width: unset; }
 
-    /* ── Contact ── */
     .contact-footer { gap: 20px; }
     .contact-column { min-width: 100%; }
 
-    /* ── Beyond the Books ── */
     .overlay h1 { font-size: 2.4rem; letter-spacing: 3px; }
     .likings-section > h2,
     .photography-album > h2 { font-size: 2rem; }
-
     .album-row { flex-direction: column; align-items: center; }
     .album-row img { max-width: 90%; }
 
-    /* Back to top: smaller and closer to edge */
     #back-to-top { width: 38px; height: 38px; right: 16px; bottom: 16px; }
 }
