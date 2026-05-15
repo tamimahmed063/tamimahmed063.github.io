@@ -296,14 +296,14 @@ nav a.active {
 }
 
 .cv-toolbar {
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 10px;
 }
 
 .cv-toolbar h2 {
-    flex: 1;
     text-align: center;
     margin: 0;
     font-size: 1.7rem;
@@ -311,7 +311,12 @@ nav a.active {
     color: #000;
 }
 
-.cv-toolbar .spacer { width: 180px; }
+.cv-toolbar .open-btn {
+    position: absolute;
+    right: 0;
+}
+
+.cv-toolbar .spacer { display: none; }
 
 .cv-frame-container {
     width: 100%;
