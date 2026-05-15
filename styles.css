@@ -25,7 +25,6 @@ a {
     transition: color 0.2s ease;
 }
 
-/* Bio paragraph links */
 .content p a {
     color: var(--wsu-crimson);
     text-decoration: none;
@@ -39,73 +38,156 @@ a {
 }
 
 p { margin-top: 0; margin-bottom: 1rem; text-align: justify; }
-
 h2 { font-size: 1.7rem; font-weight: 400; margin-top: 40px; margin-bottom: 10px; color: #000; }
 
 /* ============================================================
-   HEADER BANNER
+   HEADER BANNER — two-row layout
    ============================================================ */
 .header-banner {
     background-color: #fff;
-    position: relative;
-    margin-bottom: 30px;
     border-top: 3px solid var(--wsu-dark-crimson);
     border-bottom: 3px solid var(--wsu-dark-crimson);
+    margin-bottom: 30px;
 }
 
-.site-header {
+/* Shared inner container for both rows */
+.header-inner {
     max-width: 950px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
+    padding: 0 30px;
     box-sizing: border-box;
 }
 
-.header-left h1.page-title {
-    font-size: 2.5rem;
-    font-weight: 300;
-    margin: 0;
-    color: #000;
-    line-height: 1.0;
+/* ── ROW 1: identity ── */
+.header-identity-row {
+    padding: 28px 0 24px;
 }
 
-.header-left h1.page-title strong {
+.header-identity-row .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+}
+
+/* Left column: photo */
+.header-photo-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+    margin-top: 20px;
+}
+
+.header-profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+    border: 3px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: block;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.header-profile-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+}
+
+.header-social {
+    display: flex;
+    gap: 20px;
+    font-size: 2.5rem;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.header-social a {
+    color: #000;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.header-social a:hover {
+    color: var(--wsu-crimson);
+    transform: translateY(-2px);
+}
+
+/* Right column: name + affiliation */
+.header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    align-self: center;
+    margin-top: 30px;
+}
+
+.page-title {
+    font-size: 2.6rem;
+    font-weight: 300;
+    margin: 0 0 6px 0;
+    color: #000;
+    line-height: 1.1;
+}
+
+.page-title strong {
     font-weight: 700;
     color: var(--wsu-crimson);
 }
 
-.affiliation-block { margin-top: 5px; }
-.affiliation-block p { font-size: 1.05rem; font-style: italic; color: #000; margin: 0; line-height: 1.3; text-align: left; }
+.affiliation-block { margin: 0; }
+.affiliation-block p {
+    font-size: 1.0rem;
+    font-style: italic;
+    color: #444;
+    margin: 0;
+    line-height: 1.5;
+    text-align: left;
+}
 
-/* ============================================================
-   NAVIGATION
-   ============================================================ */
+/* ── ROW 2: navigation ── */
+.header-nav-row {
+    background-color: #ffffff;
+    border-top: 1px solid #e0e0e0;
+}
+
+.header-nav-row .header-inner {
+    display: flex;
+    justify-content: center;
+}
+
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 25px;
+    gap: 0;
 }
+
+nav li { display: flex; }
 
 nav a {
-    color: #000;
+    display: flex;
+    align-items: center;
+    color: #000000;
     font-weight: 400;
-    font-size: 1.05rem;
-    position: relative;
-    padding-bottom: 2px;
+    font-size: 1.0rem;
+    padding: 13px 22px;
+    transition: color 0.2s ease;
+    white-space: nowrap;
 }
 
-nav a:hover,
-nav a.active {
+nav a:hover {
     color: var(--wsu-crimson);
     font-weight: 600;
 }
 
 nav a.active {
-    border-bottom: 2px solid var(--wsu-crimson);
+    color: var(--wsu-crimson);
+    font-weight: 700;
 }
 
 /* ============================================================
@@ -131,7 +213,7 @@ nav a.active {
 }
 
 /* ============================================================
-   BACK TO TOP BUTTON
+   BACK TO TOP
    ============================================================ */
 #back-to-top {
     background: rgba(152, 30, 50, 0.8);
@@ -146,10 +228,13 @@ nav a.active {
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    transition: background-color 0.2s ease;
 }
 
+#back-to-top:hover { background: rgba(94, 18, 30, 0.9); }
+
 /* ============================================================
-   HOME PAGE (index.html)
+   HOME PAGE
    ============================================================ */
 .container {
     max-width: 950px;
@@ -157,23 +242,6 @@ nav a.active {
     padding: 0 30px 40px 30px;
     box-sizing: border-box;
 }
-
-/* Sidebar / profile */
-.info-box {
-    float: right;
-    width: 260px;
-    background-color: #fff;
-    padding: 10px;
-    margin: 0 0 20px 40px;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.profile-container { width: 210px; margin: 0 auto 20px auto; }
-.profile-image { width: 100%; aspect-ratio: 1 / 1; border-radius: 50%; object-fit: cover; border: 1px solid #eee; display: block; }
-.social-icons { display: flex; justify-content: center; gap: 22px; margin-top: 10px; font-size: 1.8rem; }
-.social-icons a { color: #000; transition: transform 0.2s, color 0.2s; }
-.social-icons a:hover { transform: translateY(-3px); color: var(--wsu-crimson); }
 
 /* News table */
 .news-table { width: 100%; border-collapse: collapse; }
@@ -218,7 +286,7 @@ nav a.active {
 .email-link { text-decoration: underline; }
 
 /* ============================================================
-   CV PAGE (cv/cv.html)
+   CV PAGE
    ============================================================ */
 .cv-wrapper {
     max-width: 950px;
@@ -262,7 +330,7 @@ nav a.active {
 }
 
 /* ============================================================
-   RESEARCH PAGE (Research/research.html)
+   RESEARCH PAGE
    ============================================================ */
 .research-wrapper {
     max-width: 950px;
@@ -301,7 +369,6 @@ nav a.active {
     margin-top: -8px;
 }
 
-/* Shared open button (CV + Research) */
 .open-btn {
     display: inline-flex;
     align-items: center;
@@ -319,7 +386,7 @@ nav a.active {
 .open-btn:hover { background-color: var(--wsu-dark-crimson); color: #fff; }
 
 /* ============================================================
-   PUBLICATIONS PAGE (publication/publication.html)
+   PUBLICATIONS PAGE
    ============================================================ */
 .pub-wrapper {
     max-width: 950px;
@@ -338,12 +405,7 @@ nav a.active {
     border-bottom: 3px solid var(--wsu-dark-crimson);
 }
 
-.pub-header-row h2 {
-    margin: 0;
-    font-size: 1.7rem;
-    font-weight: 700;
-    color: #000;
-}
+.pub-header-row h2 { margin: 0; font-size: 1.7rem; font-weight: 700; color: #000; }
 
 .pub-header-row .scholar-link {
     display: inline-flex;
@@ -367,12 +429,7 @@ nav a.active {
     padding: 0;
 }
 
-.pub-legend-divider {
-    width: 100%;
-    height: 1px;
-    background-color: #000;
-    margin-bottom: 20px;
-}
+.pub-legend-divider { width: 100%; height: 1px; background-color: #000; margin-bottom: 20px; }
 
 .my-name { font-weight: 700; text-decoration: underline; font-style: normal; color: var(--wsu-crimson); }
 .advisor-name { font-weight: 400; text-decoration: none; font-style: normal; color: #000; }
@@ -408,21 +465,15 @@ nav a.active {
 }
 
 .pub-proc { font-style: italic; }
-
 .pub-content a { color: #000; font-weight: 400; text-decoration: none; }
 .pub-content a:hover { text-decoration: underline; }
-
 a.pdf-link { color: #1a6bbf !important; font-weight: 400 !important; text-decoration: none !important; }
 a.pdf-link:hover { text-decoration: underline !important; }
 
 /* ============================================================
-   BEYOND THE BOOKS PAGE (beyond_the_books/beyond-the-books.html)
+   BEYOND THE BOOKS PAGE
    ============================================================ */
-.hero {
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-}
+.hero { height: 100vh; position: relative; overflow: hidden; }
 
 .background-video {
     position: absolute;
@@ -445,29 +496,14 @@ a.pdf-link:hover { text-decoration: underline !important; }
     color: #fff;
 }
 
-.overlay h1 {
-    font-size: 4rem;
-    font-weight: 300;
-    letter-spacing: 5px;
-    margin: 0 0 20px 0;
-    color: #fff;
-}
-
+.overlay h1 { font-size: 4rem; font-weight: 300; letter-spacing: 5px; margin: 0 0 20px 0; color: #fff; }
 .arrow { font-size: 1.8rem; display: flex; flex-direction: column; align-items: center; }
 .arrow span { margin-top: 5px; }
 .arrow::before { content: "↓"; font-size: 2rem; display: block; margin-bottom: 10px; }
-
-.subtext {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    border-top: 1px solid #fff;
-    padding-top: 5px;
-    margin-top: 10px;
-}
+.subtext { font-size: 0.9rem; text-transform: uppercase; border-top: 1px solid #fff; padding-top: 5px; margin-top: 10px; }
 
 .likings-section { padding: 50px 20px; background-color: #f5f5f5; text-align: center; }
 .likings-section > h2 { font-size: 3rem; color: #333; margin: 0 0 30px 0; letter-spacing: 2px; }
-
 .likings-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
 
 .liking-item {
@@ -486,7 +522,6 @@ a.pdf-link:hover { text-decoration: underline !important; }
 
 .photography-album { padding: 50px 20px; background-color: #fafafa; text-align: center; }
 .photography-album > h2 { font-size: 3rem; color: #333; margin: 0 0 30px 0; letter-spacing: 2px; }
-
 .album { display: flex; flex-direction: column; gap: 15px; }
 .album-row { display: flex; justify-content: center; gap: 10px; }
 .album-row img {
@@ -500,50 +535,46 @@ a.pdf-link:hover { text-decoration: underline !important; }
 .album-row img:hover { transform: scale(1.05); box-shadow: 0 8px 12px rgba(0,0,0,0.2); }
 
 /* ============================================================
-   RESPONSIVE — TABLET  (≤ 900px)
+   RESPONSIVE — TABLET (≤ 900px)
    ============================================================ */
 @media (max-width: 900px) {
-
-    .site-header { padding: 12px 20px; gap: 16px; }
-    .header-left h1.page-title { font-size: 2rem; }
-    .affiliation-block p { font-size: 0.95rem; }
-    nav ul { gap: 16px; }
-    nav a { font-size: 0.95rem; }
-
     .container,
     .cv-wrapper,
     .research-wrapper,
     .pub-wrapper { padding: 0 20px 40px 20px; }
 
-    .info-box { width: 220px; margin-left: 24px; }
-    .profile-container { width: 170px; }
+    nav a { padding: 12px 16px; }
 
     .cv-frame-container iframe,
     .research-frame-container iframe { height: 75vh; }
-
     .cv-toolbar .spacer { display: none; }
-    .cv-toolbar { justify-content: space-between; }
 }
 
 /* ============================================================
-   RESPONSIVE — MOBILE  (≤ 650px)
+   RESPONSIVE — MOBILE (≤ 600px)
    ============================================================ */
-@media (max-width: 650px) {
+@media (max-width: 600px) {
+    .header-identity-row { padding: 16px 0; }
 
-    .site-header { flex-direction: column; align-items: flex-start; padding: 14px 16px; gap: 12px; }
-    .header-left h1.page-title { font-size: 1.75rem; }
-    .affiliation-block p { font-size: 0.88rem; }
+    /* Stack photo above text on small screens */
+    .header-identity-row .header-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 
-    nav ul { flex-wrap: wrap; gap: 10px 18px; }
-    nav a { font-size: 0.9rem; }
+    .header-photo-col { margin-top: 0; }
+    .header-text { align-items: center; margin-top: 8px; }
+    .affiliation-block p { text-align: center; }
+    .header-social { justify-content: center; }
+
+    nav ul { flex-wrap: wrap; justify-content: center; }
+    nav a { padding: 9px 12px; }
 
     .container,
     .cv-wrapper,
     .research-wrapper,
     .pub-wrapper { padding: 0 16px 32px 16px; }
-
-    .info-box { float: none; width: 100%; margin: 0 0 24px 0; display: flex; flex-direction: column; align-items: center; }
-    .profile-container { width: 150px; }
 
     .news-table,
     .news-table tbody,
