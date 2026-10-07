@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="icon" type="image/svg+xml" href="{{ '/index/favicon.svg' | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+</head>
+<body>
+
+<div class="header-banner">
+    <!-- ROW 1: identity -->
+    <div class="header-identity-row">
+        <div class="header-inner">
+            <div class="header-photo-col">
+                <img src="{{ '/index/tamim.jpeg' | relative_url }}" alt="Tamim Ahmed" class="header-profile-img">
+            </div>
+            <div class="header-text">
+                <h1 class="page-title"><strong>Tamim</strong> Ahmed</h1>
+                <div class="affiliation-block">
+                    <p>Ph.D. Student in Computer Science</p>
+                    <p>School of Electrical Engineering &amp; Computer Science</p>
+                    <p>Washington State University</p>
+                </div>
+                <div class="header-social">
+                    <a href="https://scholar.google.com/citations?user=qk0hMKoAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://www.linkedin.com/in/tamim-ahmed-6b50b2289" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/tamimahmed063/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ROW 2: navigation -->
+    <div class="header-nav-row">
+        <div class="header-inner">
+            <nav>
+                <ul>
+                    <li><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>Home</a></li>
+                    <li><a href="{{ '/research/research.html' | relative_url }}"{% if page.url == '/research/research.html' %} class="active"{% endif %}>Research</a></li>
+                    <li><a href="{{ '/cv/cv.html' | relative_url }}"{% if page.url == '/cv/cv.html' %} class="active"{% endif %}>CV</a></li>
+                    <li><a href="{{ '/publication/publication.html' | relative_url }}"{% if page.url == '/publication/publication.html' %} class="active"{% endif %}>Publication</a></li>
+                    <li><a href="{{ '/beyond-the-books/beyond-the-book.html' | relative_url }}"{% if page.url == '/beyond-the-books/beyond-the-book.html' %} class="active"{% endif %}>Beyond the Books</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+{{ content }}
+
+<footer class="site-footer">
+    Tamim Ahmed &copy; <script>document.write(new Date().getFullYear())</script>. All rights reserved.
+</footer>
+
+<a id="back-to-top" href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+        <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/>
+    </svg>
+</a>
+{% if page.extra_script %}
+{{ page.extra_script }}
+{% endif %}
+</body>
+</html>

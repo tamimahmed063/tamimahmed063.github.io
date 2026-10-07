@@ -1,0 +1,6 @@
+title: Tamim Ahmed
+description: "Personal academic website of Tamim Ahmed."
+markdown: kramdown
+exclude:
+  - Makefile
+  - README.md

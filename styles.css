@@ -45,9 +45,10 @@ h2 { font-size: 1.7rem; font-weight: 400; margin-top: 40px; margin-bottom: 10px;
    ============================================================ */
 .header-banner {
     background-color: #fff;
-    border-top: 3px solid var(--wsu-dark-crimson);
-    border-bottom: 3px solid var(--wsu-dark-crimson);
-    margin-bottom: 30px;
+    max-width: 950px;
+    margin: 0 auto 30px auto;
+    border-top: 1.5px solid var(--wsu-dark-crimson);
+    border-bottom: 1.5px solid var(--wsu-dark-crimson);
 }
 
 /* Shared inner container for both rows */
@@ -142,7 +143,7 @@ h2 { font-size: 1.7rem; font-weight: 400; margin-top: 40px; margin-bottom: 10px;
 .affiliation-block p {
     font-size: 1.0rem;
     font-style: italic;
-    color: #444;
+    color: #000;
     margin: 0;
     line-height: 1.5;
     text-align: left;
@@ -151,7 +152,7 @@ h2 { font-size: 1.7rem; font-weight: 400; margin-top: 40px; margin-bottom: 10px;
 /* ── ROW 2: navigation ── */
 .header-nav-row {
     background-color: #ffffff;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1.5px solid var(--wsu-dark-crimson);
 }
 
 .header-nav-row .header-inner {
@@ -194,7 +195,7 @@ nav a.active {
    SECTION RIBBON
    ============================================================ */
 .section-ribbon {
-    border-bottom: 3px solid var(--wsu-dark-crimson);
+    border-bottom: 1.5px solid var(--wsu-dark-crimson);
     margin-bottom: 20px;
     margin-top: -5px;
 }
@@ -407,7 +408,7 @@ nav a.active {
     margin-top: 40px;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    border-bottom: 3px solid var(--wsu-dark-crimson);
+    border-bottom: 1.5px solid var(--wsu-dark-crimson);
 }
 
 .pub-header-row h2 { margin: 0; font-size: 1.7rem; font-weight: 700; color: #000; }
